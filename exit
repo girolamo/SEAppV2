@@ -1,0 +1,56 @@
+[33mcommit 289cee03d31a5e861224909d145fd6b6d8e3e650[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Wed Feb 27 13:37:19 2019 +0100
+
+    Added modelStockContainer - have to fix it
+
+[33mcommit 9ab9a7d2a8a5afb9a088786947c06a1afa1014bd[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Wed Feb 27 08:04:35 2019 +0100
+
+    added ajax on index
+
+[33mcommit bb0747dc77fa763b1250e80634490c61d0d66784[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Wed Feb 27 05:38:36 2019 +0100
+
+    Configured Rest Request and saving data in database
+    Created endpoint api/stock api/stockDate
+    Modiefied index
+
+[33mcommit 5f8035fffdb20c8656c3cf160a60b5b366dd1d37[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Tue Feb 26 12:00:19 2019 +0100
+
+    Added Stock entity and stockdate entity to help connect with REST
+
+[33mcommit 38ad6ce18d1572e7f8758d1c7856d3b380368be9[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Tue Feb 26 04:02:45 2019 +0100
+
+    added new user entity
+    added new role entity
+    added user repository
+    addes role repository
+
+[33mcommit a80f7d36692c3df8fc3d453db27daf6730b029b7[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Tue Feb 26 02:30:27 2019 +0100
+
+    commit before user enitty refactor
+
+[33mcommit abd73100e88ccccf02b449f698bd4cb9568d9293[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Tue Feb 26 00:24:26 2019 +0100
+
+    Fixed bug with
+    service
+    not found bean
+
+[33mcommit 8a4d0995cb813e85a1af76109f56809d49297711[m
+Author: Michal Grzech <michalgrzech93@gmail.com>
+Date:   Mon Feb 25 22:24:43 2019 +0100
+
+    First commit
+    To do:
+    Fix service exception

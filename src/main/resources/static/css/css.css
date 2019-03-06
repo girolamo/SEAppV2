@@ -1,0 +1,315 @@
+/* Initial setup */
+* {
+	color: #041B15;
+	font-family: 'Roboto', sans-serif;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFF2EC;
+	position: relative;
+	height: 100%;
+}
+a {
+    text-decoration: none;
+}
+/* Buttons & inputs */
+.buttons {
+	position: relative;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	background-color: #375A7D;
+	height: 36.3px;
+	width: 100px;
+	border: none;
+	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	will-change: transform;
+  	transition: transform 0.1s ease-out;
+}
+.buttons:hover {
+	transform: translateY(2px);
+	cursor: pointer
+}
+input[type='text'], input[type='password'] {
+	width: 161px;
+	height: 25px;
+	background-color: white;
+	border: 1px solid #BCE0FD;
+	margin: 0 10px; 
+}
+/* Header */
+header {
+	width: 100%;
+	height: 70px;
+	box-shadow: 2px 6px 7px rgba(0,0,0,.20);
+	background-color: #393939;
+}
+#header-content {
+	height: 100%;
+	width: 1390px;
+	margin: 0 auto;	
+}
+#header-content > * {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+#logotype * {
+	font-size: 20px;
+	font-weight: Medium;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav > * {
+	margin: 8px;
+}
+nav div {
+	width: 112px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF2EC;
+}
+/* Main content section */
+section {
+	flex: 1 0 auto;
+	top: 70px;
+	width: 100%;
+	height: 560px;
+}
+#main-section-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 1390px;
+	margin: 0 auto;	
+}
+
+#main-section-content > div {
+	height: 100%;
+	width: 687px;
+	margin-top: 25px;
+	background-color: rgba(55, 90, 125, .1);
+	box-shadow: 1px 3px 4px rgba(0,0,0,.2)
+}
+.headers {
+	height: 60px;
+	padding: 10px 28px;
+}
+.headers h3 {
+	text-transform: uppercase;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+table tr:nth-child(odd){
+	background-color: #FFF2EC;
+}
+table tr:nth-child(even){
+	
+}
+table tr:first-child {
+	background-color: #707070;
+}
+table tr:first-child th {
+	font-size: 20px;
+	color: #FFFFFF;
+	font-weight: normal;
+	text-align: left;
+	padding: 0 15px;
+}
+table tr{
+	height: 60px;
+}
+table tr td{
+	padding: 0 15px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.charts {
+	margin: 10px;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+}
+
+#my-wallet-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#avaible-money h3{
+	font-size: 18px;
+	color: #F57382;
+	padding: 0 15px;
+}
+
+/* Footer section */
+footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 100px;
+	box-shadow: 2px 6px 7px rgba(0,0,0,.20);
+	background-color: #393939;
+}
+#footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 1390px;
+	margin: 0 auto;	
+}
+#footer-info {
+	display: flex;
+	justify-content: space-between;
+}
+ul {
+	list-style: none;
+}
+ul li:first-child {
+	padding-bottom: 10px;
+}
+ul li {
+	font-size: 14px;
+	color: #FFF2EC;
+}
+
+/* Login or register */
+#login-or-register {
+	width: 400px;
+	margin: 100px auto;
+	text-align: center;
+}
+/* Popups */
+.hidden-popup {
+	display: none;
+}
+.show-popup {
+	display: block;
+	position: fixed;
+	background: rgba(145,145,145, .5);
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.sell-container, .buy-container {
+	width: 400px;
+	padding: 3em;
+	margin: 14em auto;
+	background: #393939;
+}
+.sell-container form, .buy-container form{
+	display: flex;
+	flex-direction: column;
+}
+.sell-container form *, .buy-container form * {
+	margin: 5px auto;
+}
+p, p * {
+	font-size: 16px;
+	font-weight: Medium;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+/* succes logout */
+@keyframes fade-out { 
+    
+    50% {opacity: 1;}
+   99% {opacity: 0; transform: translateY(0)}
+   100% {opacity: 0; transform: translateY(10000px)}
+}
+
+.popup-information-wrapper {
+    display: block;
+	position: fixed;
+	background: rgba(145,145,145, .5);
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	animation-duration: 3s;
+	animation-name: fade-out;
+	animation-fill-mode: forwards;  
+}
+.popup-information-wrapper div {
+	width: 400px;
+	padding: 3em;
+	margin: 14em auto;
+	background: #393939;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+.bad-credential {
+	color: #F57382;
+}
+.succes-information {
+ 	color: #4bed87;	
+}
+
+/* Custom login & register form  */
+.form-group {
+	position: relative;
+	margin: 0 auto;
+	width: 25%;
+}
+
+.help-block {
+	position: absolute;
+	left: 180px;
+	display: inline-block;	
+	width: 200%;
+	color: red;
+	background: #393939; 
+	color: #F57382;
+	text-align: center;
+	box-shadow: 2px 6px 7px rgba(0,0,0,.50);
+}
+.help-block * {
+	color: #F57382;
+}
+#form-wrapper {
+	margin: 0 auto;
+}
+.form-group {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.form-group input {
+	margin: 15px auto;
+}
+#form-inner form input[type="submit"]  {
+	display: block;
+	margin: 0 auto;
+}
+#form-inner .header h3 {
+	text-align: center;
+}
+#user-and-password-input {
+	display: flex;
+	justify-content: center;
+	margin: 15px auto;
+}
+#wallet-balance {
+	text-align: center;
+	font-weight: bold;
+}

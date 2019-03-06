@@ -1,0 +1,23 @@
+#charts {
+	width: 1374px;
+	height: 170%;
+	margin: 0 auto;
+	margin-top: 25px;
+	background-color: rgba(55, 90, 125, .1);
+	box-shadow: 1px 3px 4px rgba(0,0,0,.2);
+}
+
+#chart-size-buttons {
+	width: 204px;
+	margin: 0 auto;
+}
+
+.hide-chart {
+	display: none;
+}
+
+.show-chart {
+	display: block;
+}
+
+
