@@ -1,5 +1,7 @@
 package com.mgrzech.SEApp.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,16 +36,17 @@ public class UserServiceImpl implements UserService {
 	@Override 
 	public void setUserBallance(Company company, User user, int amount, String action) {
 		
-		double balance = user.getBalance();
-		double valueOfStocks = stockPriceService.getCompanyLatestStockPriceByCompany(company).getPrice()*amount;
-		double finalBalance = 0;
+		BigDecimal amountBC = new BigDecimal(amount);
+		BigDecimal balance = user.getBalance();
+		BigDecimal valueOfStocks = stockPriceService.getCompanyLatestStockPriceByCompany(company).getPrice().multiply(amountBC);
+		BigDecimal finalBalance = new BigDecimal(0);
 	
 		if(action == "BUY") {
 			
-			finalBalance = balance - valueOfStocks;
+			finalBalance = balance.subtract(valueOfStocks);
 		} else if (action =="SELL") {
 	
-			finalBalance = balance + valueOfStocks;
+			finalBalance = balance.add(valueOfStocks);
 		}
 			
 		user.setBalance(finalBalance);

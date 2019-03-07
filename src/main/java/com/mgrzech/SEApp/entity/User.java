@@ -1,5 +1,6 @@
 package com.mgrzech.SEApp.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	private double balance;
+	private BigDecimal balance;
 	
 	private String username;
 	
@@ -83,11 +84,11 @@ public class User {
 		this.password_confirmation = password_confirmation;
 	}
 
-	public double getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
 

@@ -1,8 +1,11 @@
 package com.mgrzech.SEApp.service;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,13 +53,17 @@ public class StockDateServiceImpl implements StockDateService {
 			// Get respond from request and save into db
 			saveDataToDatabase(getRequest());
 		
+		} catch (MalformedURLException e) {
+			logger.error("Something is wrong with your http request URL: " + e);
+		} catch(IOException e) {
+			logger.error("Cannon convert URL to HttpURLConnection object: " + e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Unidentified error: " + e);
 		}
 	}
 		
 	// GET HTTP Request to API
-	private StringBuffer getRequest() throws Exception{
+	private StringBuffer getRequest() throws MalformedURLException, IOException {
 		
 		// Create request
 		URL url = new URL("http://webtask.future-processing.com:8068/stocks");
@@ -109,7 +116,7 @@ public class StockDateServiceImpl implements StockDateService {
 			companyService.saveCompaniesIntoDb(getListOfCompanies(nodeOfItems)); // <-Insert new Companies if exists		
 			stockPriceService.savePricesIntoDB(getListOfStockPrices(nodeOfItems));
 			
-			logger.info("Insert new date into database.");
+			logger.info("Insert new date and stock prices into database.");
 		}		
 	}
 	
@@ -164,7 +171,8 @@ public class StockDateServiceImpl implements StockDateService {
 
 				}		
 				
-				theStockPrice.setPrice(objNode.get("price").asDouble());
+				BigDecimal priceBigDecimal = new BigDecimal(objNode.get("price").asDouble());
+				theStockPrice.setPrice(priceBigDecimal);
 				theStockPrice.setStockDate(latestInsertedStockDate);
 				listOfStockPrices.add(theStockPrice);
 			}

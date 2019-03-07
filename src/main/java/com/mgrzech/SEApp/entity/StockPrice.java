@@ -1,5 +1,7 @@
 package com.mgrzech.SEApp.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ public class StockPrice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private double price;
+	private BigDecimal price;
 	
 	@ManyToOne
 	@JoinColumn(name="company_id")
@@ -56,11 +58,11 @@ public class StockPrice {
 		this.stockDate = stockDate;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	

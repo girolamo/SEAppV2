@@ -1,5 +1,7 @@
 package com.mgrzech.SEApp.controller;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.security.Principal;
 import java.util.List;
 
@@ -43,8 +45,8 @@ public class SEAppController {
 			List<UserStock> theStocks = userStockService.getUserStocks(theUser);
 			List<Company> companies = companyService.getListOfCompanies();
 			
-			double roundedBalance = userService.findByUsername(user.getName()).getBalance();
-			roundedBalance = Math.round(roundedBalance*10000.0)/10000.0;
+			BigDecimal roundedBalance = userService.findByUsername(user.getName()).getBalance();
+			roundedBalance = roundedBalance.round(new MathContext(4));
 			
 			model.addAttribute("companies", companies);
 			model.addAttribute("stockList", theStocks);
@@ -58,8 +60,6 @@ public class SEAppController {
 	public String showChart(@PathVariable String code,
 			Principal user, Model model) {	
 		
-		
-		
 		return "stock";
 	}
 	
@@ -72,11 +72,12 @@ public class SEAppController {
 		Company theCompany = companyService.findCompanyByCode(companyCode);
 		int numberOfBoughtUnits = checkData(theCompany, quantityBuyUnits, user);	
 		
+		BigDecimal numberOfBoughtUnitsBD = new BigDecimal(numberOfBoughtUnits);
 		int currentAmountOfStock = theCompany.getAmount();
-		double userBallance = userService.findByUsername(user.getName()).getBalance();
-		double valueOfBoughtStocks = stockPriceService.getCompanyLatestStockPriceByCompany(theCompany).getPrice()*numberOfBoughtUnits;
+		BigDecimal userBallance = userService.findByUsername(user.getName()).getBalance();
+		BigDecimal valueOfBoughtStocks = stockPriceService.getCompanyLatestStockPriceByCompany(theCompany).getPrice().multiply(numberOfBoughtUnitsBD);
 		
-		if(numberOfBoughtUnits > 0 && valueOfBoughtStocks <= userBallance && currentAmountOfStock >= numberOfBoughtUnits) {
+		if(numberOfBoughtUnits > 0 && (valueOfBoughtStocks.compareTo(userBallance) <= 0) && currentAmountOfStock >= numberOfBoughtUnits) {
 			finalizeTransaction(theCompany, theUser, numberOfBoughtUnits, action);
 			
 			return "redirect:/index";
